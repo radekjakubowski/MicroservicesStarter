@@ -1,0 +1,17 @@
+{
+  "name": "MicroservicesStarter",
+  "dockerComposeFile": ["../docker/docker-compose.yaml"],
+  "service": "dev-env",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-mssql.mssql",
+        "humao.rest-client",
+        "vasubasraj.flashpost",
+        "ms-dotnettools.csdevkit"
+      ]
+    }
+  },
+  "remoteUser": "root"
+}

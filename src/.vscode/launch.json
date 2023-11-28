@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "RunApiGateway",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-api-gateway",
+      "program": "${workspaceFolder}/API.Gateway/bin/Debug/net7.0/API.Gateway.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/API.Gateway",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+  ]
+}
