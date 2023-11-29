@@ -9,7 +9,8 @@
         "ms-mssql.mssql",
         "humao.rest-client",
         "vasubasraj.flashpost",
-        "ms-dotnettools.csdevkit"
+        "ms-dotnettools.csdevkit",
+        "jmrog.vscode-nuget-package-manager"
       ]
     }
   },
