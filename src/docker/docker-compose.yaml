@@ -1,14 +1,14 @@
 version: '3.4'
 services:
   sql_server:
-    container_name: gatewaydb
+    container_name: usersdb
     image: 'mcr.microsoft.com/mssql/server:2022-latest'
     ports:
       - '6000:1433'
     volumes:
-      - 'gateway-db-volume:/var/lib/mssqlql/data/'
+      - 'users-db-volume:/var/lib/mssqlql/data/'
     env_file:
-      - gatewaydb/gatewaydb.env
+      - usersdb/usersdb.env
   dev-env:
     container_name: dev-env
     build:
@@ -18,4 +18,4 @@ services:
     stdin_open: true
     tty: true
 volumes:
-  gateway-db-volume: null
+  users-db-volume: null
