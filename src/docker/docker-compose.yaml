@@ -4,7 +4,7 @@ services:
     container_name: gatewaydb
     image: 'mcr.microsoft.com/mssql/server:2022-latest'
     ports:
-      - '5000:1433'
+      - '6000:1433'
     volumes:
       - 'gateway-db-volume:/var/lib/mssqlql/data/'
     env_file:

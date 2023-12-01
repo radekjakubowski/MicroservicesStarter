@@ -11,8 +11,26 @@
       "cwd": "${workspaceFolder}/API.Gateway",
       "stopAtEntry": false,
       "console": "integratedTerminal"
+    },
+    {
+      "name": "RunUsersApi",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-users-api",
+      "program": "${workspaceFolder}/UsersAPI/bin/Debug/net7.0/UsersAPI.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/UsersAPI",
+      "stopAtEntry": false,
+      "console": "integratedTerminal"
     }
   ],
   "compounds": [
+    {
+      "name": "Run All",
+      "configurations": [
+        "RunApiGateway",
+        "RunUsersApi",
+      ]
+    }
   ]
 }

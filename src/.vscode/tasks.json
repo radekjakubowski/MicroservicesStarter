@@ -13,6 +13,19 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "build-users-api",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}/UsersAPI/UsersAPI.csproj"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }

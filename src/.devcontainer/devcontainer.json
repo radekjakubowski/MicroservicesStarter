@@ -10,7 +10,7 @@
         "humao.rest-client",
         "vasubasraj.flashpost",
         "ms-dotnettools.csdevkit",
-        "jmrog.vscode-nuget-package-manager"
+        "aliasadidev.nugetpackagemanagergui"
       ]
     }
   },
