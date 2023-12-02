@@ -98,7 +98,7 @@ public class AuthService : IAuthService
         await _userManager.CreateAsync(newUser, signUpDto.Password);
 
         var createdUser = await _userManager.FindByEmailAsync(newUser.Email);
-        await _userManager.AddToRoleAsync(createdUser, Roles.User);
+        await _userManager.AddToRoleAsync(createdUser, SolutionRoles.User);
 
         var signIn = await SignInAsync(signUpDto.Email, signUpDto.Password);
 

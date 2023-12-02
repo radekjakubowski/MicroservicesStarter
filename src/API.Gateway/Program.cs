@@ -1,5 +1,3 @@
-using static AuthProvider;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDefaultAuthentication();
