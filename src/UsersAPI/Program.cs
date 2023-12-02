@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OddajGlos.Users.Infrastructure.Services.Infrastructure;
 using System.Reflection;
-using static AuthProvider;
+using Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,19 +24,20 @@ builder.Services.AddTransient<ISecureTokenService, SecureTokenService>();
 builder.Services.AddTransient<ITokensService, TokensService>();
 builder.Services.AddDbContext<UsersDbContext>(x =>
 {
-    // connect to dockerized instance of mssql
+    // connect to dockerized instance of mssql - watch out for connection string as being in dev container u gotta use url from docker compose :D
     var connectionString = builder.Configuration.GetConnectionString("UsersDb");
-    x.UseSqlServer(connectionString);
+    x.UseSqlServer(connectionString, opts => {
+        opts.EnableRetryOnFailure();
+    });
 });
 
-builder.Services
-    .AddIdentityCore<ApplicationUser>()
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<UsersDbContext>();
-
+builder.Services.AddIdentityCore<ApplicationUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<UsersDbContext>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
+
+app.EnsureMigrationOfContext<UsersDbContext>();
+await app.Services.SeedRoles<UsersDbContext, ApplicationUser>(AuthProvider.Roles);
 
 app.MapControllers();
 

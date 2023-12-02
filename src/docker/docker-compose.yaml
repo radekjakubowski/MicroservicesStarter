@@ -1,6 +1,6 @@
 version: '3.4'
 services:
-  sql_server:
+  usersdbsqlserver:
     container_name: usersdb
     image: 'mcr.microsoft.com/mssql/server:2022-latest'
     ports:

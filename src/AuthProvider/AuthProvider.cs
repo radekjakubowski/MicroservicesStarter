@@ -8,6 +8,8 @@ public static class AuthProvider
   public static string JwtSecret = "mysuperfancysecretkeyjwt123!";
   public static string JwtIssuer = "http://microservicesstarter.com";
 
+  public static readonly List<string> Roles = new() { "Admin", "User" };
+
   public static void AddDefaultAuthentication(this IServiceCollection services)
   {
     services.AddAuthentication(opts =>
