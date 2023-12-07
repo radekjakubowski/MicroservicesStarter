@@ -26,6 +26,19 @@
         "kind": "build",
         "isDefault": true
       }
+    },
+    {
+      "label": "build-notifications-api",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}/NotificationsAPI/NotificationsAPI.csproj"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }

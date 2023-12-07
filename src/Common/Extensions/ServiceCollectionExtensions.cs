@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,5 +23,18 @@ public static class ServiceCollectionExtensions
         }
 
         await identityDbContext.SaveChangesAsync();
+    }
+
+    public static void SetupMessageBroker(this IServiceCollection services, Action<IRabbitMqReceiveEndpointConfigurator> consumersConfig = null) {
+        services.AddMassTransit(cfg => {
+            cfg.UsingRabbitMq((context, config) => {
+                config.Host("rabbitmq", opts => {
+                    opts.Username("user");
+                    opts.Password("password");
+                });
+
+                config.ReceiveEndpoint(consumersConfig);
+            });
+        });
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using OddajGlos.Users.Infrastructure.Services.Infrastructure;
 using System.Reflection;
 using Common;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +34,7 @@ builder.Services.AddDbContext<UsersDbContext>(x =>
 
 builder.Services.AddIdentityCore<ApplicationUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<UsersDbContext>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+builder.Services.SetupMessageBroker();
 
 var app = builder.Build();
 

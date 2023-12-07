@@ -22,6 +22,17 @@
       "cwd": "${workspaceFolder}/UsersAPI",
       "stopAtEntry": false,
       "console": "integratedTerminal"
+    },
+    {
+      "name": "RunNotificationsApi",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-notifications-api",
+      "program": "${workspaceFolder}/NotificationsAPI/bin/Debug/net7.0/NotificationsAPI.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/NotificationsAPI",
+      "stopAtEntry": false,
+      "console": "integratedTerminal" 
     }
   ],
   "compounds": [
@@ -30,6 +41,7 @@
       "configurations": [
         "RunApiGateway",
         "RunUsersApi",
+        "RunNotificationsApi"
       ]
     }
   ]

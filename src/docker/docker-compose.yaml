@@ -4,11 +4,21 @@ services:
     container_name: usersdb
     image: 'mcr.microsoft.com/mssql/server:2022-latest'
     ports:
-      - '6000:1433'
+      - 6000:1433
     volumes:
       - 'users-db-volume:/var/lib/mssqlql/data/'
     env_file:
       - usersdb/usersdb.env
+  rabbit:
+    container_name: rabbitmq
+    image: 'rabbitmq:latest'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    env_file:
+      - rabbitmq/rabbitmq.env
   dev-env:
     container_name: dev-env
     build:
@@ -19,3 +29,4 @@ services:
     tty: true
 volumes:
   users-db-volume: null
+  rabbitmq_data: null
