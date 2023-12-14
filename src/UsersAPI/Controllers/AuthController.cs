@@ -18,6 +18,12 @@ public class AuthController : ControllerBase
         _mediator = mediator;
     }
 
+    [HttpGet("ping")]
+    public ActionResult<string> PingAsync()
+    {
+        return Ok("pong");
+    }
+
     [HttpPost("sign-in", Name = "SignIn")]
     public async Task<ActionResult<SignInCommandResponse>> SignInAsync(SignInCommand signInCommand)
     {
