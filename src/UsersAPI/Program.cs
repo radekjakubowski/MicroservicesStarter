@@ -26,7 +26,7 @@ builder.Services.AddDbContext<UsersDbContext>(x =>
 {
     // connect to dockerized instance of mssql - watch out for connection string as being in dev container u gotta use url from docker compose :D
     var connectionString = builder.Configuration.GetConnectionString("UsersDb");
-    x.UseSqlServer(connectionString, opts => {
+    x.UseNpgsql(connectionString, opts => {
         opts.EnableRetryOnFailure();
     });
 });

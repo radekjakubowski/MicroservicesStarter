@@ -1,12 +1,10 @@
 version: '3.4'
 services:
-  usersdbsqlserver:
+  usersdb:
     container_name: usersdb
-    image: 'mcr.microsoft.com/mssql/server:2022-latest'
-    ports:
-      - 6000:1433
+    image: postgres:latest
     volumes:
-      - 'users-db-volume:/var/lib/mssqlql/data/'
+      - 'users-db-volume:/var/lib/postgresql/data'
     env_file:
       - usersdb/usersdb.env
   rabbit:
