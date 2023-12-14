@@ -12,6 +12,7 @@ COPY ["Common/Common.csproj", "Common/"]
 RUN dotnet restore "UsersAPI/UsersAPI.csproj"
 COPY . .
 WORKDIR "/src/UsersAPI"
+ENV ASPNETCORE_ENVIRONMENT=Production
 RUN dotnet build "UsersAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish

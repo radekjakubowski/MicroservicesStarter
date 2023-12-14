@@ -12,6 +12,7 @@ COPY ["Common/Common.csproj", "Common/"]
 RUN dotnet restore "API.Gateway/API.Gateway.csproj"
 COPY . .
 WORKDIR "/src/API.Gateway"
+ENV ASPNETCORE_ENVIRONMENT=Production
 RUN dotnet build "API.Gateway.csproj" -c Release -o /app/build
 
 FROM build AS publish
