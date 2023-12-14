@@ -21,20 +21,20 @@ services:
       - rabbitmq/rabbitmq.env
   gateway:
     container_name: gateway
-    image: 'radoslawjakubowski/gateway:latest'
+    image: 'apigateway'
     ports:
       - 5100:80
     depends_on:
       - rabbit
   users:
     container_name: users
-    image: 'radoslawjakubowski/users:latest'
+    image: 'usersapi'
     depends_on:
       - usersdbsqlserver
       - gateway
   notifications:
     container_name: notifications
-    image: 'radoslawjakubowski/notifications:latest'
+    image: 'notificationsapi'
     depends_on:
       - gateway
 volumes:

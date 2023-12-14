@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using OddajGlos.Users.Infrastructure.Services.Infrastructure;
 using System.Reflection;
 using Common;
-using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
