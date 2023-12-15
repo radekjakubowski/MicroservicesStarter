@@ -1,0 +1,33 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+<div class="row gap-3">
+    <div class="d-flex justify-content-center gap-3">
+      <div>
+        <label class="form-control-label">Email</label>
+      </div>
+      <div>
+        <input type="text" formControlName="email">
+      </div>
+    </div>
+    <div class="d-flex justify-content-center gap-3">
+      <div>
+        <label class="form-control-label">Password</label>
+      </div>
+      <div>
+        <input type="password" formControlName="password">
+      </div>
+    </div>
+    <div class="d-flex justify-content-center gap-3">
+      <div>
+        <label class="form-control-label">Confirm password</label>
+      </div>
+      <div>
+        <input type="password" formControlName="confirmPassword">
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div>
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </div>
+  </div>
+</form>

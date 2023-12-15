@@ -33,6 +33,13 @@
       "cwd": "${workspaceFolder}/NotificationsAPI",
       "stopAtEntry": false,
       "console": "integratedTerminal" 
+    },
+    {
+      // not working on devcontainer !
+      "type": "msedge",
+      "request": "attach",
+      "preLaunchTask": "run-spa",
+      "name": "RunSPA",
     }
   ],
   "compounds": [
@@ -41,7 +48,7 @@
       "configurations": [
         "RunApiGateway",
         "RunUsersApi",
-        "RunNotificationsApi"
+        "RunNotificationsApi",
       ]
     }
   ]

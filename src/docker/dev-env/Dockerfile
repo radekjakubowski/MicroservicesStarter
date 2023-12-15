@@ -11,7 +11,7 @@ RUN apt-get update && \
  apt-get install -qy curl && \
  apt-get -y install --no-install-recommends vim && \
  curl -sSL https://get.docker.com/ | sh
-RUN dotnet tool install -g dotnet-ef
+RUN dotnet tool install -g dotnet-ef --version 7.0.14
 ENV PATH $PATH:/root/.dotnet/tools
 # configure for https
 RUN dotnet dev-certs https
