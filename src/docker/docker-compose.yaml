@@ -28,3 +28,4 @@ services:
 volumes:
   users-db-volume: null
   rabbitmq_data: null
+  pgadmin_data: null

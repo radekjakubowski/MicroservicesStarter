@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiClientService } from '../../services/api-client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   private fb = inject(FormBuilder);
   private apiClient = inject(ApiClientService);
+  private router = inject(Router);
 
   constructor() {
    this.registerForm = this.fb.group({
@@ -32,6 +34,6 @@ export class RegisterComponent implements OnInit {
       email: email,
       password: password,
       confirmPassword: confirmPassword
-    }).subscribe(() => console.log("happy"), (err) => console.error(err))
+    }).subscribe(() => this.router.navigateByUrl('/'), (err) => console.error(err))
   }
 }

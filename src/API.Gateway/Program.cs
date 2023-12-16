@@ -9,5 +9,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.MapReverseProxy();
+app.UseCors((policy) => {
+  var allowedOrigin = builder.Configuration["AllowedOrigin"];
+  policy.WithOrigins(allowedOrigin)
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+});
 
 app.Run();
